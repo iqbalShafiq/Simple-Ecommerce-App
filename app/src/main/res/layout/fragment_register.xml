@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_primary"
+    android:orientation="vertical"
+    android:paddingHorizontal="30dp"
+    android:paddingTop="56dp">
+
+    <TextView
+        style="@style/SemiBold36Sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registration" />
+
+    <TextView
+        style="@style/Medium14Sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/email" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        style="@style/Regular12Sp"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_radius16dp"
+        android:gravity="center_vertical"
+        android:hint="@string/your_email_here"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="12dp"
+        android:textColor="@color/dark_accent"
+        android:textColorHint="@color/light_disabled"
+        tools:ignore="Autofill" />
+
+    <TextView
+        style="@style/Medium14Sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/full_name" />
+
+    <EditText
+        android:id="@+id/etFullName"
+        style="@style/Regular12Sp"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_radius16dp"
+        android:gravity="center_vertical"
+        android:hint="@string/your_full_name_here"
+        android:inputType="text"
+        android:paddingHorizontal="12dp"
+        android:textColor="@color/dark_accent"
+        android:textColorHint="@color/light_disabled"
+        tools:ignore="Autofill" />
+
+    <TextView
+        style="@style/Medium14Sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/password" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        style="@style/Regular12Sp"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_radius16dp"
+        android:gravity="center_vertical"
+        android:hint="@string/your_password_here"
+        android:inputType="textPassword"
+        android:paddingHorizontal="12dp"
+        android:textColor="@color/dark_accent"
+        android:textColorHint="@color/light_disabled"
+        tools:ignore="Autofill" />
+
+    <TextView
+        android:id="@+id/tvErrorMessage"
+        style="@style/Medium14Sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/register_error"
+        android:textColor="@color/red_accent"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressLoading"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="36dp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        style="@style/SemiBold18Sp"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/bg_radius16dp"
+        android:backgroundTint="@color/dark_accent"
+        android:gravity="center"
+        android:text="@string/register"
+        android:textAllCaps="false"
+        android:textColor="@color/light_primary" />
+
+    <Button
+        android:id="@+id/btnBack"
+        style="@style/SemiBold18Sp"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_radius16dp"
+        android:backgroundTint="@color/light_primary"
+        android:gravity="center"
+        android:text="@string/back"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_accent" />
+
+</LinearLayout>

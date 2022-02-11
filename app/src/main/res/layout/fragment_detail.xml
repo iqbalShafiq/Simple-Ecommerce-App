@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="30dp"
+    android:paddingTop="56dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/dark_accent"
+            android:contentDescription="@string/cart_icon" />
+
+        <TextView
+            android:id="@+id/tvItemName"
+            style="@style/SemiBold36Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="iPhone 13.3" />
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/SemiBold24Sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/item_code" />
+
+    <TextView
+        android:id="@+id/tvItemCode"
+        style="@style/Medium18Sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="asdasdasasasd" />
+
+    <TextView
+        style="@style/SemiBold24Sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/item_price" />
+
+    <TextView
+        android:id="@+id/tvItemPrice"
+        style="@style/Medium18Sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Rp9.000.000" />
+
+    <androidx.legacy.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnRemove"
+            style="@style/Medium14Sp"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_radius16dp"
+            android:backgroundTint="@color/red_accent"
+            android:text="@string/remove_from_cart"
+            android:textAllCaps="false"
+            android:textColor="@color/light_primary" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            style="@style/Medium14Sp"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_radius16dp"
+            android:backgroundTint="@color/dark_accent"
+            android:text="@string/add_to_cart"
+            android:textAllCaps="false"
+            android:textColor="@color/light_primary" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_radius16dp"
+    android:backgroundTint="@color/dark_accent"
+    android:orientation="vertical"
+    android:paddingHorizontal="18dp"
+    android:paddingVertical="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Medium14Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="@string/item_name"
+            android:textColor="@color/light_primary" />
+
+        <TextView
+            android:id="@+id/tvItemName"
+            style="@style/Regular12Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_primary"
+            tools:text="iPhone 13.3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Medium14Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="@string/item_code"
+            android:textColor="@color/light_primary" />
+
+        <TextView
+            android:id="@+id/tvItemCode"
+            style="@style/Regular12Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_primary"
+            tools:text="asdasdasbkjasbd" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Medium14Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="@string/sum_item"
+            android:textColor="@color/light_primary" />
+
+        <TextView
+            android:id="@+id/tvSumItem"
+            style="@style/Regular12Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_primary"
+            tools:text="24" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Medium14Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="@string/subtotal_price"
+            android:textColor="@color/light_primary" />
+
+        <TextView
+            android:id="@+id/tvSubtotalPrice"
+            style="@style/Regular12Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_primary"
+            tools:text="Rp9.000.000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Medium14Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="@string/item_price"
+            android:textColor="@color/light_primary" />
+
+        <TextView
+            android:id="@+id/tvItemPrice"
+            style="@style/Regular12Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_primary"
+            tools:text="Rp9.000.000" />
+    </LinearLayout>
+
+    <Button
+        style="@style/Medium14Sp"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_radius16dp"
+        android:backgroundTint="@color/red_accent"
+        android:text="@string/remove_from_cart"
+        android:textAllCaps="false"
+        android:textColor="@color/light_primary" />
+
+</LinearLayout>

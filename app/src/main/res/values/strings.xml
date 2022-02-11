@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Ecommerce App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="registration">Registration</string>
+    <string name="email">Email</string>
+    <string name="your_email_here">Your email here ...</string>
+    <string name="your_password_here">Your password here ...</string>
+    <string name="password">Password</string>
+    <string name="your_full_name_here">Your full name here ...</string>
+    <string name="full_name">Full Name</string>
+    <string name="register">Register</string>
+    <string name="back">Back</string>
+    <string name="login">Login</string>
+    <string name="register_error">Register Error</string>
+    <string name="search_here">Search here ...</string>
+    <string name="item_name">Item Name:</string>
+    <string name="item_code">Item Code:</string>
+    <string name="item_price">Item Price:</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="cart_icon">cart icon</string>
+    <string name="your_cart">Your Cart</string>
+    <string name="remove_from_cart">Remove from Cart</string>
+    <string name="inside_your_cart">Inside Your Cart</string>
+    <string name="error_connecting_to_api">Error connecting to API</string>
+    <string name="subtotal_price">Subtotal Price:</string>
+    <string name="sum_item">Sum Item:</string>
+</resources>
