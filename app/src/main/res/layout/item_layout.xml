@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="@string/item_code"
+        android:text="@string/item_price"
         android:textColor="@color/light_primary" />
 
     <TextView
@@ -45,13 +45,31 @@
         android:textColor="@color/light_primary"
         tools:text="Rp9.000.000" />
 
+    <androidx.legacy.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
     <Button
+        android:id="@+id/btnDetail"
         style="@style/Medium14Sp"
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
         android:background="@drawable/bg_radius16dp"
-        android:backgroundTint="@color/red_accent"
+        android:backgroundTint="@color/light_primary"
+        android:text="@string/details"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_accent" />
+
+    <Button
+        android:id="@+id/btnAddCart"
+        style="@style/Medium14Sp"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_radius16dp"
+        android:backgroundTint="@color/green_accent"
         android:text="@string/add_to_cart"
         android:textAllCaps="false"
         android:textColor="@color/light_primary" />

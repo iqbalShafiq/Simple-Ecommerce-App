@@ -26,4 +26,9 @@
     <string name="error_connecting_to_api">Error connecting to API</string>
     <string name="subtotal_price">Subtotal Price:</string>
     <string name="sum_item">Sum Item:</string>
+    <string name="log_out">Log out</string>
+    <string name="details">Details</string>
+    <string name="add_item">Add Item</string>
+    <string name="your_cart_is_still_empty">Your cart is still empty</string>
+    <string name="credential_is_invalid">Credential is invalid</string>
 </resources>

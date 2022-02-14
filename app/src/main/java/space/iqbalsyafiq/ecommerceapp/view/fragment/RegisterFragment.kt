@@ -13,6 +13,10 @@ import space.iqbalsyafiq.ecommerceapp.viewmodel.RegisterViewModel
 
 class RegisterFragment : Fragment() {
 
+    companion object {
+        const val TAG = "RegisterFrag"
+    }
+
     private lateinit var binding: FragmentRegisterBinding
     private val viewModel: RegisterViewModel by activityViewModels()
 
@@ -34,16 +38,22 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            val email = etEmail.text.toString()
-            val fullName = etFullName.text.toString()
-            val password = etPassword.text.toString()
 
             btnRegister.setOnClickListener {
-                viewModel.registerUser(
-                    RegisterRequest(
-                        email, fullName, password
+                val email = etEmail.text.toString()
+                val fullName = etFullName.text.toString()
+                val password = etPassword.text.toString()
+
+                if (email.isNotBlank() && fullName.isNotBlank() && password.isNotBlank()) {
+                    viewModel.registerUser(
+                        RegisterRequest(
+                            email, fullName, password
+                        )
                     )
-                )
+                } else {
+                    Toast.makeText(requireContext(), "Input should be filled", Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
 
             btnBack.setOnClickListener {
@@ -59,7 +69,6 @@ class RegisterFragment : Fragment() {
             isLoading?.let {
                 with(binding) {
                     progressLoading.visibility = if (isLoading) View.VISIBLE else View.GONE
-                    tvErrorMessage.visibility = if (isLoading) View.GONE else View.VISIBLE
                 }
             }
         }

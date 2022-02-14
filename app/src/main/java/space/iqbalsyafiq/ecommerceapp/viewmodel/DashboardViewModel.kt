@@ -12,19 +12,22 @@ import space.iqbalsyafiq.ecommerceapp.model.cart.CartRequest
 import space.iqbalsyafiq.ecommerceapp.model.item.ItemMessage
 import space.iqbalsyafiq.ecommerceapp.model.item.ItemRequest
 import space.iqbalsyafiq.ecommerceapp.model.item.ItemResponse
+import space.iqbalsyafiq.ecommerceapp.util.SharedPreferencesHelper
 
-class ItemListViewModel(application: Application) : BaseViewModel(application) {
+class DashboardViewModel(application: Application) : BaseViewModel(application) {
     companion object {
         const val TAG = "RegisterVM"
     }
 
     private val service = EcommerceApiService()
+    private val prefHelper = SharedPreferencesHelper(getApplication())
 
     // Live Data
     val loading = MutableLiveData<Boolean>()
     val error = MutableLiveData<Boolean>()
     val items = MutableLiveData<List<ItemMessage>>()
-    val message = MutableLiveData<String>()
+    val logout = MutableLiveData<Boolean>()
+    val addItem = MutableLiveData<Boolean>()
 
     fun getItemList(token: String, itemRequest: ItemRequest = ItemRequest("", 0)) {
         loading.value = true
@@ -57,7 +60,9 @@ class ItemListViewModel(application: Application) : BaseViewModel(application) {
                     call: Call<MessageResponse>,
                     response: Response<MessageResponse>
                 ) {
-                    message.value = response.body()?.message
+                    if (response.isSuccessful) {
+                        addItem.value = true
+                    }
                 }
 
                 override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
@@ -65,5 +70,12 @@ class ItemListViewModel(application: Application) : BaseViewModel(application) {
                 }
 
             })
+    }
+
+    // logging out
+    fun logoutUser() {
+        prefHelper.clearToken()
+        Log.d(TAG, "logoutUser: ${prefHelper.getToken()}")
+        logout.value = true
     }
 }

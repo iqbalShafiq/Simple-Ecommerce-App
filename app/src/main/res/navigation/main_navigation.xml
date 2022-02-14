@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -15,7 +15,9 @@
             app:destination="@id/registerFragment" />
         <action
             android:id="@+id/navigateToDashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/main_navigation"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -33,15 +35,49 @@
         <action
             android:id="@+id/navigateToListCartFragment"
             app:destination="@id/listCartFragment" />
+        <argument
+            android:name="token"
+            android:defaultValue="Guest"
+            app:argType="string" />
+        <action
+            android:id="@+id/navigateBackToLoginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/main_navigation"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="space.iqbalsyafiq.ecommerceapp.view.fragment.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="itemMessage"
+            app:argType="space.iqbalsyafiq.ecommerceapp.model.item.ItemMessage" />
+    </fragment>
     <fragment
         android:id="@+id/listCartFragment"
         android:name="space.iqbalsyafiq.ecommerceapp.view.fragment.ListCartFragment"
         android:label="fragment_list_cart"
-        tools:layout="@layout/fragment_list_cart" />
+        tools:layout="@layout/fragment_list_cart">
+        <argument
+            android:name="token"
+            android:defaultValue="Guest"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="space.iqbalsyafiq.ecommerceapp.view.fragment.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/navigateToLoginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/main_navigation"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/navigateToDashboardFragmentFromSplash"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/main_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

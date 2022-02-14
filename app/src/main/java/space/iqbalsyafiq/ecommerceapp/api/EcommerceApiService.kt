@@ -1,6 +1,5 @@
 package space.iqbalsyafiq.ecommerceapp.api
 
-import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,10 +15,20 @@ import space.iqbalsyafiq.ecommerceapp.model.item.ItemRequest
 import space.iqbalsyafiq.ecommerceapp.model.item.ItemResponse
 
 class EcommerceApiService {
-    private val gson = GsonBuilder().setLenient().create()
+    //    private val gson = GsonBuilder().setLenient().create()
+//    private val client = OkHttpClient().newBuilder().addInterceptor(object : Interceptor {
+//        override fun intercept(chain: Interceptor.Chain): Response {
+//            val newRequest = chain.request().newBuilder()
+//                .addHeader("Authorization", GLOBAL_TOKEN)
+//                .build()
+//
+//            return chain.proceed(newRequest)
+//        }
+//    }).build()
+
     private val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create(gson))
+        .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(EcommerceApi::class.java)
 

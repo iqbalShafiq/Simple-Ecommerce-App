@@ -10,6 +10,7 @@ import space.iqbalsyafiq.ecommerceapp.api.EcommerceApiService
 import space.iqbalsyafiq.ecommerceapp.model.MessageResponse
 import space.iqbalsyafiq.ecommerceapp.model.authentication.LoginRequest
 import space.iqbalsyafiq.ecommerceapp.model.authentication.TokenizeRequest
+import space.iqbalsyafiq.ecommerceapp.util.SharedPreferencesHelper
 
 class LoginViewModel(application: Application) : BaseViewModel(application) {
     companion object {
@@ -17,6 +18,7 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
     }
 
     private val service = EcommerceApiService()
+    private val prefHelper = SharedPreferencesHelper(getApplication())
 
     // Live Data
     val loading = MutableLiveData<Boolean>()
@@ -32,8 +34,12 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
                     call: Call<MessageResponse>,
                     response: Response<MessageResponse>
                 ) {
-                    Log.d(RegisterViewModel.TAG, "onResponse: ${response.isSuccessful}")
-                    tokenize(TokenizeRequest(loginRequest.email))
+                    if (response.isSuccessful) {
+                        tokenize(TokenizeRequest(loginRequest.email))
+                    } else {
+                        loading.value = false
+                        error.value = true
+                    }
                 }
 
                 override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
@@ -55,7 +61,12 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
                     response: Response<MessageResponse>
                 ) {
                     Log.d(RegisterViewModel.TAG, "onResponse: ${response.isSuccessful}")
-                    response.body()?.message?.let { checkSession(it) }
+                    response.body()?.message?.let {
+                        Log.d(TAG, "onResponse: $it")
+                        prefHelper.saveToken(it)
+                        Log.d(TAG, "onResponse: ${prefHelper.getToken()}")
+                        checkSession(it)
+                    }
                 }
 
                 override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
@@ -68,8 +79,6 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
     }
 
     fun checkSession(token: String) {
-        loading.value = true
-
         service.checkSession(token)
             .enqueue(object : Callback<MessageResponse> {
                 override fun onResponse(
@@ -78,13 +87,12 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
                 ) {
                     Log.d(RegisterViewModel.TAG, "onResponse: ${response.isSuccessful}")
                     loading.value = false
-                    message.value = response.body()?.message
+                    message.value = token
                 }
 
                 override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
                     Log.d(RegisterViewModel.TAG, "onFailure: $t")
                     loading.value = false
-                    error.value = true
                 }
 
             })

@@ -64,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
-        android:text="@string/register_error"
+        android:text="@string/credential_is_invalid"
         android:textColor="@color/red_accent"
         android:visibility="gone" />
 

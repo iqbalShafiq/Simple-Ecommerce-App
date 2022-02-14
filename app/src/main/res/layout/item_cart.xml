@@ -128,13 +128,14 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btnAddItem"
         style="@style/Medium14Sp"
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
         android:background="@drawable/bg_radius16dp"
-        android:backgroundTint="@color/red_accent"
-        android:text="@string/remove_from_cart"
+        android:backgroundTint="@color/green_accent"
+        android:text="@string/add_item"
         android:textAllCaps="false"
         android:textColor="@color/light_primary" />
 

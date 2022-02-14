@@ -5,9 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/light_primary"
     android:paddingStart="30dp"
     android:paddingTop="56dp"
     tools:ignore="RtlSymmetry">
+
+    <TextView
+        style="@style/SemiBold36Sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dashboard" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,25 +22,24 @@
         android:orientation="horizontal"
         android:paddingEnd="30dp">
 
-        <TextView
-            style="@style/SemiBold36Sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dashboard" />
-
-        <androidx.legacy.widget.Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
         <ImageView
             android:id="@+id/ivCart"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_gravity="center"
             android:background="@drawable/ic_cart"
-            android:backgroundTint="@color/red_accent"
-            android:contentDescription="@string/cart_icon" />
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@color/green_accent"
+            android:contentDescription="@string/cart_icon" />"
+
+        <TextView
+            android:id="@+id/tvLogout"
+            style="@style/Medium14Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/log_out"
+            android:textColor="@color/red_accent" />
 
     </LinearLayout>
 
@@ -53,32 +59,47 @@
         android:textColorHint="@color/light_disabled"
         tools:ignore="Autofill" />
 
-    <TextView
-        android:id="@+id/tvErrorMessage"
-        style="@style/Medium14Sp"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="@string/error_connecting_to_api"
-        android:textColor="@color/red_accent"
-        android:visibility="gone" />
+        android:layout_height="wrap_content">
 
-    <ProgressBar
-        android:id="@+id/progressLoading"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="36dp"
-        android:visibility="gone" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:paddingEnd="18dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:ignore="RtlSymmetry"
-        tools:listitem="@layout/item_layout" />
+            <TextView
+                android:id="@+id/tvErrorMessage"
+                style="@style/Medium14Sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/error_connecting_to_api"
+                android:textColor="@color/red_accent"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progressLoading"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="36dp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvItemList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:paddingEnd="18dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:ignore="RtlSymmetry"
+                tools:listitem="@layout/item_layout" />
+
+        </LinearLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

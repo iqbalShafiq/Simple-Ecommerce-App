@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
@@ -33,11 +34,19 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            val email = etEmail.text.toString()
-            val password = etPassword.text.toString()
-
             btnLogin.setOnClickListener {
-                viewModel.loginUser(LoginRequest(email, password))
+                val email = etEmail.text.toString()
+                val password = etPassword.text.toString()
+                if (email.isNotBlank() && password.isNotBlank()) {
+                    viewModel.loginUser(LoginRequest(email, password))
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "You have to input the entry",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
             }
 
             btnRegister.setOnClickListener {
@@ -72,7 +81,7 @@ class LoginFragment : Fragment() {
             messageResponse?.let {
                 if (!messageResponse.equals("Guest")) {
                     val action = LoginFragmentDirections
-                        .navigateToDashboardFragment()
+                        .navigateToDashboardFragment(messageResponse)
                     Navigation.findNavController(binding.root).navigate(action)
                 }
             }

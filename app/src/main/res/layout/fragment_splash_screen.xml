@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_primary"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".view.fragment.SplashScreenFragment">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/ic_cart"
+        android:backgroundTint="@color/green_accent"
+        android:contentDescription="@string/cart_icon" />
+
+    <TextView
+        android:id="@+id/tvErrorMessage"
+        style="@style/Medium14Sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:text="@string/error_connecting_to_api"
+        android:textColor="@color/red_accent"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressLoading"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="36dp"
+        android:visibility="visible" />
+
+</LinearLayout>
